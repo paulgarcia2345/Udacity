@@ -53,14 +53,15 @@ def get_floor_selection ():
         get_floor_selection ()
 
 def first_floor (message_to_print):
-    if "ID card" in items:
-            print_pause("The clerk greets you, but she has already" 
-                        "given you your ID card, so there is nothing" 
-                        "more to do here now.")
-    else:
-        print_pause ('The clerk greets you and gives you your ID card')
+    if "ID card" not in items:
         items.append('ID Card')
-        print (items)
+        print_pause ('The clerk greets you and gives you your ID card')
+        print(items)
+
+    else:
+        print_pause("The clerk greets you, but she has already" 
+                    "given you your ID card, so there is nothing" 
+                    "more to do here now.")
     print_pause (message_to_print)
 
 def second_floor (message_to_print):
@@ -76,5 +77,3 @@ def you_first_day():
 
 
 you_first_day()
-
-
