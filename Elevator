@@ -38,7 +38,7 @@ def get_floor_selection ():
     if '1' in response:
         first_floor ('You push the button for the first floor.')
         print_pause ('After a few moments, you find yourself in the on the first floor.')
-        
+        print ('The clerk greets you and gives you your ID card.')
         get_floor_selection ()
     
     elif '2' in response:
@@ -53,15 +53,6 @@ def get_floor_selection ():
         get_floor_selection ()
 
 def first_floor (message_to_print):
-    if "ID card" not in items:
-        items.append('ID Card')
-        print_pause ('The clerk greets you and gives you your ID card')
-        print(items)
-
-    else:
-        print_pause("The clerk greets you, but she has already" 
-                    "given you your ID card, so there is nothing" 
-                    "more to do here now.")
     print_pause (message_to_print)
 
 def second_floor (message_to_print):
