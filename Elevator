@@ -34,23 +34,45 @@ def get_floor_selection ():
                                 "1. Lobby \n" 
                                 "2. Human resources\n"
                                 "3. Engineering department\n", '1','2','3')
-  
+
     if '1' in response:
-        first_floor ('You push the button for the first floor.')
-        print_pause ('After a few moments, you find yourself in the on the first floor.')
-        print ('The clerk greets you and gives you your ID card.')
-        get_floor_selection ()
-    
-    elif '2' in response:
-        second_floor ('You push the button for the second floor.')
-        print_pause ('After a few moments, you find yourself in the lobby.')
+        
+
+        if 'Handbook' in items:
+            print_pause ("The HR folks are busy at their desks. "
+                        "There doesn't seem to be much to do here." )
+
+        else:
+            print_pause ('HR approaches')
+            if 'ID card' in items:
+                print_pause ('He looks at your ID card and then gives you a copy of the employee handbook.')
+                items.append('Handbook')
+            else:
+                print_pause('You would need to go to the first floor first and get your ID badge')
+
         get_floor_selection ()
 
     elif '3' in response:
         third_floor ('You push the button for the third floor.')
-        print_pause ('After a few moments, you find yourself in the lobby.')
-        print_pause ('Where would you like to go next?')
-        get_floor_selection ()
+        print_pause ('After a few moments, you find yourself on the third floor.')
+        print_pause ('This is where you work!')
+        if 'ID card' in items: 
+            print_pause('You use your ID card to open the door.\n '
+                        'Your program manager greets you and tell '
+                        'you that you need to have a copy of the employee handbook in order to start work.')
+            if 'Handbook' in items: 
+                print_pause ('Fortunately, you got those itmes from HR!')
+
+            else:
+                print_pause("They scowl when they see that you don't have it, and send you back to the elevator.")
+        
+        else:
+            print_pause ("Unfortunately, the door is locked and you can't get inside.\n"
+                        "It looks like you need some kind of key card to open the door.\n"
+                        "You head back to the elevator." )
+            
+    print_pause ('Where would you like to go next?')
+        
 
 def first_floor (message_to_print):
     print_pause (message_to_print)
